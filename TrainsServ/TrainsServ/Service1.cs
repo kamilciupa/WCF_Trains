@@ -19,6 +19,15 @@ namespace TrainsServ
 
         public string GetTripWithTime(string From, string To, DateTime FromTime)
         {
+            List<TrainData> list = ParseCVS();
+            foreach(TrainData record in list)
+            {
+                if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && record.TimeFrom1.Equals(FromTime))
+                {
+                    return record.ToString();
+                }
+                
+            }
             return "";
         }
 
@@ -59,6 +68,11 @@ namespace TrainsServ
                 this.TimeFrom = TimeFrom;
                 this.TimeTo = TimeTo;
             }
+
+            public string TownA1 { get => TownA; set => TownA = value; }
+            public string TownB1 { get => TownB; set => TownB = value; }
+            public DateTime TimeFrom1 { get => TimeFrom; set => TimeFrom = value; }
+            public DateTime TimeTo1 { get => TimeTo; set => TimeTo = value; }
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
