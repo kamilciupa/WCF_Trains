@@ -24,17 +24,26 @@ namespace TrainsServ
             {
                 if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && FromTime >= record.TimeFrom1)
                 {
-                    return record.TownA1.ToString() + " " +record.TimeFrom1.ToString() + " " + 
-                            record.TownB1.ToString() + " " +record.TimeTo1.ToString();
+                    return toStringTrainData(record);
                 }
                 
             }
             return "";
         }
 
-        public string GetTripWithoutTime(string From, string To)
+        public List<string> GetTripWithoutTime(string From, string To)
         {
-            return "";
+            List<TrainData> list = ParseCVS();
+            List<string> outputList = new List<string>();
+            foreach(TrainData record in list)
+            {
+                if(record.TownA1.Equals(From) && record.TownB1.Equals(To))
+                {
+                    outputList.Add(toStringTrainData(record));
+                }
+            }
+
+            return outputList;
         }
 
         public List<TrainData> ParseCVS()
@@ -57,7 +66,16 @@ namespace TrainsServ
              }
             return list;
         }
-        //2017-05-10 8:00
+        
+        public string toStringTrainData(TrainData record)
+        {
+            return record.TownA1.ToString() + " " + record.TimeFrom1.ToString() + " " +
+                            record.TownB1.ToString() + " " + record.TimeTo1.ToString();
+        }
+
+
+
+
         public class TrainData
         {
             string TownA;

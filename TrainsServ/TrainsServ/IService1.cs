@@ -18,7 +18,7 @@ namespace TrainsServ
         string GetTripWithTime(string From, string To, DateTime FromTime);
 
         [OperationContract]
-        string GetTripWithoutTime(string From, string To);
+        List<string> GetTripWithoutTime(string From, string To);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
