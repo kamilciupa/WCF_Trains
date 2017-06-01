@@ -22,9 +22,10 @@ namespace TrainsServ
             List<TrainData> list = ParseCVS();
             foreach(TrainData record in list)
             {
-                if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && record.TimeFrom1.Equals(FromTime))
+                if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && FromTime >= record.TimeFrom1)
                 {
-                    return record.ToString();
+                    return record.TownA1.ToString() + " " +record.TimeFrom1.ToString() + " " + 
+                            record.TownB1.ToString() + " " +record.TimeTo1.ToString();
                 }
                 
             }
@@ -41,19 +42,22 @@ namespace TrainsServ
             string[] csvLines = File.ReadAllLines(@"C:\Desktop\WCF\WCF_Trains\TrainsServ\TrainsServ\trains.csv");
             List<TrainData> list = new List<TrainData>();
 
-            foreach (string line in csvLines)
+            foreach (string line in csvLines.Skip(1))
             {
                 var splitedLine = line.Split(',');
                 list.Add(
                     new TrainData(
                         splitedLine[0],
-                        splitedLine[1],
-                        DateTime.ParseExact(splitedLine[2], "yyyy-MM-dd HH:mm", new CultureInfo("pl-PL")),
-                        DateTime.ParseExact(splitedLine[3], "yyyy-MM-dd HH:mm", new CultureInfo("pl-PL"))));
+                        splitedLine[2],
+                        Convert.ToDateTime(splitedLine[1]),
+                        Convert.ToDateTime(splitedLine[3])
+                        ));
+                       // DateTime.ParseExact(splitedLine[1], "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture),
+                        //DateTime.ParseExact(splitedLine[3], "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)));
              }
             return list;
         }
-
+        //2017-05-10 8:00
         public class TrainData
         {
             string TownA;
