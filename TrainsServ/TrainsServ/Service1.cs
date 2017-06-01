@@ -59,23 +59,6 @@ namespace TrainsServ
             return outputList;
         }
 
-        //public string NoCityMsg(int code, string one, string two)
-        //{
-        //    switch (code)
-        //    {
-        //        case 1:
-        //            return "There is no city like: " + one;
-        //            break;
-        //        case 2:
-        //            return "There is no city like: " + two;
-        //            break;
-        //        case 3:
-        //            return "There is no cities like: " + one + " and " + two;
-        //            break;
-        //    }
-        //    return "";
-        //}
-
 
         public string IsCityIn(string from, List<TrainData> list)
         {

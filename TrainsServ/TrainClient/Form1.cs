@@ -22,18 +22,22 @@ namespace TrainClient
             ServiceReference2.Service1Client client = new ServiceReference2.Service1Client();
             listBox1.Items.Clear();
             string[] outputStrings;
-            
+            //List<string> outputStrings = new List<string>();
 
 
             if (!string.IsNullOrEmpty(boxData.Text))
                 outputStrings = client.GetTripWithTime(boxSkad.Text, boxDokad.Text, Convert.ToDateTime(boxData.Text));
             else
                 outputStrings = client.GetTripWithoutTime(boxSkad.Text, boxDokad.Text);
-            
-            foreach (string row in outputStrings)
+
+            if (outputStrings.Length != 0)
             {
-                listBox1.Items.Add(row);
-            }
+                foreach (string row in outputStrings)
+                {
+                    listBox1.Items.Add(row);
+
+                }
+            } else { listBox1.Items.Add("Brak polaczen"); }
         }
 
       
