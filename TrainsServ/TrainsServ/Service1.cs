@@ -28,7 +28,7 @@ namespace TrainsServ
                 }
                 
             }
-            return "";
+            return "U made a mistake, sir";
         }
 
         public List<string> GetTripWithoutTime(string From, string To)
@@ -61,8 +61,6 @@ namespace TrainsServ
                         Convert.ToDateTime(splitedLine[1]),
                         Convert.ToDateTime(splitedLine[3])
                         ));
-                       // DateTime.ParseExact(splitedLine[1], "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture),
-                        //DateTime.ParseExact(splitedLine[3], "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)));
              }
             return list;
         }
