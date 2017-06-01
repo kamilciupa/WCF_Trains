@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TrainClient.ServiceReference1 {
+namespace TrainClient.ServiceReference2 {
     using System.Runtime.Serialization;
     using System;
     
@@ -75,7 +75,7 @@ namespace TrainClient.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
@@ -85,10 +85,10 @@ namespace TrainClient.ServiceReference1 {
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTripWithTime", ReplyAction="http://tempuri.org/IService1/GetTripWithTimeResponse")]
-        string GetTripWithTime(string From, string To, System.DateTime FromTime);
+        string[] GetTripWithTime(string From, string To, System.DateTime FromTime);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTripWithTime", ReplyAction="http://tempuri.org/IService1/GetTripWithTimeResponse")]
-        System.Threading.Tasks.Task<string> GetTripWithTimeAsync(string From, string To, System.DateTime FromTime);
+        System.Threading.Tasks.Task<string[]> GetTripWithTimeAsync(string From, string To, System.DateTime FromTime);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTripWithoutTime", ReplyAction="http://tempuri.org/IService1/GetTripWithoutTimeResponse")]
         string[] GetTripWithoutTime(string From, string To);
@@ -97,19 +97,19 @@ namespace TrainClient.ServiceReference1 {
         System.Threading.Tasks.Task<string[]> GetTripWithoutTimeAsync(string From, string To);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        TrainClient.ServiceReference1.CompositeType GetDataUsingDataContract(TrainClient.ServiceReference1.CompositeType composite);
+        TrainClient.ServiceReference2.CompositeType GetDataUsingDataContract(TrainClient.ServiceReference2.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<TrainClient.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(TrainClient.ServiceReference1.CompositeType composite);
+        System.Threading.Tasks.Task<TrainClient.ServiceReference2.CompositeType> GetDataUsingDataContractAsync(TrainClient.ServiceReference2.CompositeType composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : TrainClient.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
+    public interface IService1Channel : TrainClient.ServiceReference2.IService1, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<TrainClient.ServiceReference1.IService1>, TrainClient.ServiceReference1.IService1 {
+    public partial class Service1Client : System.ServiceModel.ClientBase<TrainClient.ServiceReference2.IService1>, TrainClient.ServiceReference2.IService1 {
         
         public Service1Client() {
         }
@@ -138,11 +138,11 @@ namespace TrainClient.ServiceReference1 {
             return base.Channel.GetDataAsync(value);
         }
         
-        public string GetTripWithTime(string From, string To, System.DateTime FromTime) {
+        public string[] GetTripWithTime(string From, string To, System.DateTime FromTime) {
             return base.Channel.GetTripWithTime(From, To, FromTime);
         }
         
-        public System.Threading.Tasks.Task<string> GetTripWithTimeAsync(string From, string To, System.DateTime FromTime) {
+        public System.Threading.Tasks.Task<string[]> GetTripWithTimeAsync(string From, string To, System.DateTime FromTime) {
             return base.Channel.GetTripWithTimeAsync(From, To, FromTime);
         }
         
@@ -154,11 +154,11 @@ namespace TrainClient.ServiceReference1 {
             return base.Channel.GetTripWithoutTimeAsync(From, To);
         }
         
-        public TrainClient.ServiceReference1.CompositeType GetDataUsingDataContract(TrainClient.ServiceReference1.CompositeType composite) {
+        public TrainClient.ServiceReference2.CompositeType GetDataUsingDataContract(TrainClient.ServiceReference2.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<TrainClient.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(TrainClient.ServiceReference1.CompositeType composite) {
+        public System.Threading.Tasks.Task<TrainClient.ServiceReference2.CompositeType> GetDataUsingDataContractAsync(TrainClient.ServiceReference2.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
     }

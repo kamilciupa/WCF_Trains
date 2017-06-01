@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d64d98eb-1c9d-4c65-9a28-bfe720045e51" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2f0759d0-a398-4826-b003-a0a8d55479be" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="1b3513a6-9898-4ee8-b0ba-c578bd00114b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="7a6d9200-3a83-4384-9256-9ff8b819b607" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="587fde7f-b381-4862-afe8-4ed23cdebeb4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="c33aff73-615b-4a50-a32b-ea4ba4db7b65" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
-    <MetadataFile FileName="TrainsServ.xsd" MetadataType="Schema" ID="1fa99eb4-5fb9-491a-bd89-004fcdf460c5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="cc1a9021-1435-416d-84b8-2828fae28410" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b97c8a49-376d-4510-a7e4-eb6ddbe6c187" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="864b9126-8978-4f1e-b266-6a86cf149d8c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="bca3fb2b-2263-4a1e-9446-da7de2d64b8e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
+    <MetadataFile FileName="TrainsServ.xsd" MetadataType="Schema" ID="a2f97bb8-e18a-4554-a5bb-bb6d5bea00e1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TrainsServ/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

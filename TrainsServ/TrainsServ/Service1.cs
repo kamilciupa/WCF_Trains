@@ -9,7 +9,6 @@ using System.Globalization;
 
 namespace TrainsServ
 {
-    // UWAGA: możesz użyć polecenia „Zmień nazwę” w menu „Refaktoryzuj”, aby zmienić nazwę klasy „Service1” w kodzie i pliku konfiguracji.
     public class Service1 : IService1
     {
         public string GetData(int value)
@@ -17,18 +16,19 @@ namespace TrainsServ
             return string.Format("You entered: {0}", value);
         }
 
-        public string GetTripWithTime(string From, string To, DateTime FromTime)
+        public List<string> GetTripWithTime(string From, string To, DateTime FromTime)
         {
             List<TrainData> list = ParseCVS();
+            List<string> helpList = new List<string>();
             foreach(TrainData record in list)
             {
                 if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && FromTime >= record.TimeFrom1)
                 {
-                    return toStringTrainData(record);
+                    helpList.Add(toStringTrainData(record));
                 }
                 
             }
-            return "U made a mistake, sir";
+            return helpList;
         }
 
         public List<string> GetTripWithoutTime(string From, string To)

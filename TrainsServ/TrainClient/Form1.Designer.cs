@@ -34,14 +34,16 @@
             this.boxSkad = new System.Windows.Forms.TextBox();
             this.boxDokad = new System.Windows.Forms.TextBox();
             this.boxData = new System.Windows.Forms.TextBox();
-            this.labelOutput = new System.Windows.Forms.Label();
             this.buttonZatwierdz = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 19);
+            this.label1.Location = new System.Drawing.Point(62, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 45);
+            this.label2.Location = new System.Drawing.Point(55, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 1;
@@ -59,7 +61,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 71);
+            this.label3.Location = new System.Drawing.Point(17, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 2;
@@ -67,61 +69,71 @@
             // 
             // boxSkad
             // 
-            this.boxSkad.Location = new System.Drawing.Point(102, 12);
+            this.boxSkad.Location = new System.Drawing.Point(100, 24);
             this.boxSkad.Name = "boxSkad";
-            this.boxSkad.Size = new System.Drawing.Size(100, 20);
+            this.boxSkad.Size = new System.Drawing.Size(252, 20);
             this.boxSkad.TabIndex = 3;
             // 
             // boxDokad
             // 
-            this.boxDokad.Location = new System.Drawing.Point(102, 38);
+            this.boxDokad.Location = new System.Drawing.Point(100, 50);
             this.boxDokad.Name = "boxDokad";
-            this.boxDokad.Size = new System.Drawing.Size(100, 20);
+            this.boxDokad.Size = new System.Drawing.Size(252, 20);
             this.boxDokad.TabIndex = 4;
             // 
             // boxData
             // 
-            this.boxData.Location = new System.Drawing.Point(102, 64);
+            this.boxData.Location = new System.Drawing.Point(100, 76);
             this.boxData.Name = "boxData";
-            this.boxData.Size = new System.Drawing.Size(100, 20);
+            this.boxData.Size = new System.Drawing.Size(252, 20);
             this.boxData.TabIndex = 5;
-            // 
-            // labelOutput
-            // 
-            this.labelOutput.AutoSize = true;
-            this.labelOutput.Location = new System.Drawing.Point(130, 172);
-            this.labelOutput.Name = "labelOutput";
-            this.labelOutput.Size = new System.Drawing.Size(35, 13);
-            this.labelOutput.TabIndex = 6;
-            this.labelOutput.Text = "label4";
             // 
             // buttonZatwierdz
             // 
-            this.buttonZatwierdz.Location = new System.Drawing.Point(102, 90);
+            this.buttonZatwierdz.Location = new System.Drawing.Point(100, 117);
             this.buttonZatwierdz.Name = "buttonZatwierdz";
-            this.buttonZatwierdz.Size = new System.Drawing.Size(100, 23);
+            this.buttonZatwierdz.Size = new System.Drawing.Size(131, 23);
             this.buttonZatwierdz.TabIndex = 7;
             this.buttonZatwierdz.Text = "Zatwierdź";
             this.buttonZatwierdz.UseVisualStyleBackColor = true;
             this.buttonZatwierdz.Click += new System.EventHandler(this.buttonZatwierdz_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(42, 164);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(297, 95);
+            this.listBox1.TabIndex = 8;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.boxDokad);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.buttonZatwierdz);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.boxData);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.boxSkad);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(358, 146);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Wprowadź Dane";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.buttonZatwierdz);
-            this.Controls.Add(this.labelOutput);
-            this.Controls.Add(this.boxData);
-            this.Controls.Add(this.boxDokad);
-            this.Controls.Add(this.boxSkad);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(382, 277);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.listBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -133,8 +145,9 @@
         private System.Windows.Forms.TextBox boxSkad;
         private System.Windows.Forms.TextBox boxDokad;
         private System.Windows.Forms.TextBox boxData;
-        private System.Windows.Forms.Label labelOutput;
         private System.Windows.Forms.Button buttonZatwierdz;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

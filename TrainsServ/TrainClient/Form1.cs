@@ -19,15 +19,18 @@ namespace TrainClient
 
         private void buttonZatwierdz_Click(object sender, EventArgs e)
         {
-            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            ServiceReference2.Service1Client client = new ServiceReference2.Service1Client();
+            listBox1.Items.Clear();
+            string[] outputStrings;
+
             if (!string.IsNullOrEmpty(boxData.Text))
+                outputStrings = client.GetTripWithTime(boxSkad.Text, boxDokad.Text, Convert.ToDateTime(boxData.Text));
+            else
+                outputStrings = client.GetTripWithoutTime(boxSkad.Text, boxDokad.Text);
+            
+            foreach (string row in outputStrings)
             {
-                string outputString = client.GetTripWithTime(boxSkad.Text, boxDokad.Text, Convert.ToDateTime(boxData.Text));
-                labelOutput.Text = outputString;
-            } else
-            {
-                string[] outputStrings = client.GetTripWithoutTime(boxSkad.Text, boxDokad.Text);
-                labelOutput.Text = "There is so many";
+                listBox1.Items.Add(row);
             }
         }
     }

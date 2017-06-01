@@ -15,7 +15,7 @@ namespace TrainsServ
         string GetData(int value);
 
         [OperationContract]
-        string GetTripWithTime(string From, string To, DateTime FromTime);
+        List<string> GetTripWithTime(string From, string To, DateTime FromTime);
 
         [OperationContract]
         List<string> GetTripWithoutTime(string From, string To);
