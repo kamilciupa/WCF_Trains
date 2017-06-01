@@ -73,6 +73,7 @@
             this.boxSkad.Name = "boxSkad";
             this.boxSkad.Size = new System.Drawing.Size(252, 20);
             this.boxSkad.TabIndex = 3;
+            
             // 
             // boxDokad
             // 

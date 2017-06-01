@@ -22,6 +22,8 @@ namespace TrainClient
             ServiceReference2.Service1Client client = new ServiceReference2.Service1Client();
             listBox1.Items.Clear();
             string[] outputStrings;
+            
+
 
             if (!string.IsNullOrEmpty(boxData.Text))
                 outputStrings = client.GetTripWithTime(boxSkad.Text, boxDokad.Text, Convert.ToDateTime(boxData.Text));
@@ -33,5 +35,7 @@ namespace TrainClient
                 listBox1.Items.Add(row);
             }
         }
+
+      
     }
 }

@@ -20,6 +20,12 @@ namespace TrainsServ
         {
             List<TrainData> list = ParseCVS();
             List<string> helpList = new List<string>();
+            //int code;
+            //if((code = IsCityOnData(From, To, list)) != 0)
+            //{
+            //    helpList.Add( NoCityMsg(code, From, To));
+            //    return helpList;
+            //}
             foreach(TrainData record in list)
             {
                 if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && FromTime <= record.TimeFrom1)
@@ -35,7 +41,13 @@ namespace TrainsServ
         {
             List<TrainData> list = ParseCVS();
             List<string> outputList = new List<string>();
-            foreach(TrainData record in list)
+            //int code;
+            //if ((code = IsCityOnData(From, To, list)) != 0)
+            //{
+            //    outputList.Add(NoCityMsg(code, From, To));
+            //    return outputList;
+            //}
+            foreach (TrainData record in list)
             {
                 if(record.TownA1.Equals(From) && record.TownB1.Equals(To))
                 {
@@ -45,6 +57,42 @@ namespace TrainsServ
 
             return outputList;
         }
+
+        //public string NoCityMsg(int code, string one, string two)
+        //{
+        //    switch (code)
+        //    {
+        //        case 1:
+        //            return "There is no city like: " + one;
+        //            break;
+        //        case 2:
+        //            return "There is no city like: " + two;
+        //            break;
+        //        case 3:
+        //            return "There is no cities like: " + one + " and " + two;
+        //            break;
+        //    }
+        //    return "";
+        //}
+
+        //public int IsCityOnData(string From, string To, List<TrainData> list)
+        //{
+        //    int i = 0, j = 0, wynik = 0;
+        //    foreach (TrainData record in list)
+        //    {
+        //        if (record.TownA1.Equals(From))
+        //        {
+        //            i++;
+        //        }
+        //        if (record.TownB1.Equals(To))
+        //        {
+        //            j++;
+        //        }
+        //    }
+        //        if(i != 0)  wynik++;
+        //        if (j != 0) wynik += 2;
+        //    return wynik;
+        //}
 
         public List<TrainData> ParseCVS()
         {
