@@ -35,6 +35,7 @@
             this.boxDokad = new System.Windows.Forms.TextBox();
             this.boxData = new System.Windows.Forms.TextBox();
             this.labelOutput = new System.Windows.Forms.Label();
+            this.buttonZatwierdz = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -94,11 +95,22 @@
             this.labelOutput.TabIndex = 6;
             this.labelOutput.Text = "label4";
             // 
+            // buttonZatwierdz
+            // 
+            this.buttonZatwierdz.Location = new System.Drawing.Point(102, 90);
+            this.buttonZatwierdz.Name = "buttonZatwierdz";
+            this.buttonZatwierdz.Size = new System.Drawing.Size(100, 23);
+            this.buttonZatwierdz.TabIndex = 7;
+            this.buttonZatwierdz.Text = "Zatwierdź";
+            this.buttonZatwierdz.UseVisualStyleBackColor = true;
+            this.buttonZatwierdz.Click += new System.EventHandler(this.buttonZatwierdz_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.buttonZatwierdz);
             this.Controls.Add(this.labelOutput);
             this.Controls.Add(this.boxData);
             this.Controls.Add(this.boxDokad);
@@ -122,6 +134,7 @@
         private System.Windows.Forms.TextBox boxDokad;
         private System.Windows.Forms.TextBox boxData;
         private System.Windows.Forms.Label labelOutput;
+        private System.Windows.Forms.Button buttonZatwierdz;
     }
 }
 

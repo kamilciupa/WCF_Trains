@@ -16,5 +16,13 @@ namespace TrainClient
         {
             InitializeComponent();
         }
+
+        private void buttonZatwierdz_Click(object sender, EventArgs e)
+        {
+            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            string outputString = client.GetTripWithTime(boxSkad.Text, boxDokad.Text, Convert.ToDateTime(boxData.Text));
+            labelOutput.Text = outputString;
+
+        }
     }
 }

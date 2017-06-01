@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainsServ", "TrainsServ\TrainsServ.csproj", "{B5917AD2-466D-46BA-841E-ED7F6895D8BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainClient", "TrainClient\TrainClient.csproj", "{441932E1-D867-44F3-ABD1-560FB9C1BE25}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B5917AD2-466D-46BA-841E-ED7F6895D8BF} = {B5917AD2-466D-46BA-841E-ED7F6895D8BF}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
