@@ -22,7 +22,7 @@ namespace TrainsServ
             List<string> helpList = new List<string>();
             foreach(TrainData record in list)
             {
-                if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && FromTime >= record.TimeFrom1)
+                if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && FromTime <= record.TimeFrom1)
                 {
                     helpList.Add(toStringTrainData(record));
                 }
