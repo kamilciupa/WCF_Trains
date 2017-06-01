@@ -1,0 +1,127 @@
+﻿namespace TrainClient
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Wymagana zmienna projektanta.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Wyczyść wszystkie używane zasoby.
+        /// </summary>
+        /// <param name="disposing">prawda, jeżeli zarządzane zasoby powinny zostać zlikwidowane; Fałsz w przeciwnym wypadku.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Kod generowany przez Projektanta formularzy systemu Windows
+
+        /// <summary>
+        /// Wymagana metoda obsługi projektanta — nie należy modyfikować 
+        /// zawartość tej metody z edytorem kodu.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.boxSkad = new System.Windows.Forms.TextBox();
+            this.boxDokad = new System.Windows.Forms.TextBox();
+            this.boxData = new System.Windows.Forms.TextBox();
+            this.labelOutput = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(64, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Skąd";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(57, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Dokąd";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Data Wyjazdu ";
+            // 
+            // boxSkad
+            // 
+            this.boxSkad.Location = new System.Drawing.Point(102, 12);
+            this.boxSkad.Name = "boxSkad";
+            this.boxSkad.Size = new System.Drawing.Size(100, 20);
+            this.boxSkad.TabIndex = 3;
+            // 
+            // boxDokad
+            // 
+            this.boxDokad.Location = new System.Drawing.Point(102, 38);
+            this.boxDokad.Name = "boxDokad";
+            this.boxDokad.Size = new System.Drawing.Size(100, 20);
+            this.boxDokad.TabIndex = 4;
+            // 
+            // boxData
+            // 
+            this.boxData.Location = new System.Drawing.Point(102, 64);
+            this.boxData.Name = "boxData";
+            this.boxData.Size = new System.Drawing.Size(100, 20);
+            this.boxData.TabIndex = 5;
+            // 
+            // labelOutput
+            // 
+            this.labelOutput.AutoSize = true;
+            this.labelOutput.Location = new System.Drawing.Point(130, 172);
+            this.labelOutput.Name = "labelOutput";
+            this.labelOutput.Size = new System.Drawing.Size(35, 13);
+            this.labelOutput.TabIndex = 6;
+            this.labelOutput.Text = "label4";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.labelOutput);
+            this.Controls.Add(this.boxData);
+            this.Controls.Add(this.boxDokad);
+            this.Controls.Add(this.boxSkad);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox boxSkad;
+        private System.Windows.Forms.TextBox boxDokad;
+        private System.Windows.Forms.TextBox boxData;
+        private System.Windows.Forms.Label labelOutput;
+    }
+}
+
