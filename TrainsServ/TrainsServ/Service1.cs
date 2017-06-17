@@ -29,7 +29,7 @@ namespace TrainsServ
 
             foreach (TrainData record in list)
             {
-                if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && FromTime <= record.TimeFrom1)
+                if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && DateTime.Compare(record.TimeFrom1, FromTime) >=0)
                 {
                     helpList.Add(toStringTrainData(record));
                 }
@@ -48,16 +48,26 @@ namespace TrainsServ
             if (!IsCityIn(To, list).Equals("Good"))
                 outputList.Add(IsCityIn(To, list));
 
+
+
             foreach (TrainData record in list)
             {
-                if(record.TownA1.Equals(From) && record.TownB1.Equals(To))
+                if(record.TownA1.Equals(From))
                 {
-                    outputList.Add(toStringTrainData(record));
+                    if (record.TownB1.Equals(To))
+                    {
+                        outputList.Add(toStringTrainData(record));
+                    }
+                   
                 }
             }
 
+            
             return outputList;
         }
+
+
+        
 
 
         public string IsCityIn(string from, List<TrainData> list)
@@ -109,7 +119,7 @@ namespace TrainsServ
 
             public TrainData(string TownA, string TownB, DateTime TimeFrom, DateTime TimeTo)
             {
-                this.TownA = TownA;
+                this.TownA = TownA; 
                 this.TownB = TownB;
                 this.TimeFrom = TimeFrom;
                 this.TimeTo = TimeTo;
