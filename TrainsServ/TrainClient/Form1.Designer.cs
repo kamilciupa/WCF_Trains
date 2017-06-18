@@ -73,7 +73,6 @@
             this.boxSkad.Name = "boxSkad";
             this.boxSkad.Size = new System.Drawing.Size(252, 20);
             this.boxSkad.TabIndex = 3;
-            
             // 
             // boxDokad
             // 
@@ -102,9 +101,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(42, 164);
+            this.listBox1.Location = new System.Drawing.Point(12, 164);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(297, 95);
+            this.listBox1.Size = new System.Drawing.Size(358, 108);
             this.listBox1.TabIndex = 8;
             // 
             // groupBox1
@@ -127,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 277);
+            this.ClientSize = new System.Drawing.Size(383, 277);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listBox1);
             this.Name = "Form1";

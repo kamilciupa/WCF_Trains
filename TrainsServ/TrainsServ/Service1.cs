@@ -19,37 +19,44 @@ namespace TrainsServ
         public List<string> GetTripWithTime(string From, string To, DateTime FromTime)
         {
             List<TrainData> list = ParseCVS();
-            List<string> helpList = new List<string>();
-
+            List<string> outputList = new List<string>();
+            
             if (!IsCityIn(From, list).Equals("Good"))
-                helpList.Add(IsCityIn(From, list));
+                outputList.Add(IsCityIn(From, list));
             if (!IsCityIn(To, list).Equals("Good"))
-                helpList.Add(IsCityIn(To, list));
+                outputList.Add(IsCityIn(To, list));
 
-
+            outputList.Add("Połączenia bezpośrednie");
+            outputList.Add("");
             foreach (TrainData record in list)
             {
                 if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && DateTime.Compare(record.TimeFrom1, FromTime) >=0)
                 {
-                    helpList.Add(toStringTrainData(record));
+                    outputList.Add(toStringTrainData(record));
                 }
                 
             }
-            return helpList;
+            outputList.Add("");
+            outputList.Add("Połączenia pośrednie");
+            outputList.Add("");
+            outputList.AddRange(findIndircetConnectionsWithTime(From, To, FromTime, list));
+
+            return outputList;
         }
 
         public List<string> GetTripWithoutTime(string From, string To)
         {
             List<TrainData> list = ParseCVS();
             List<string> outputList = new List<string>();
-
+            
             if (!IsCityIn(From, list).Equals("Good"))
                 outputList.Add(IsCityIn(From, list));
             if (!IsCityIn(To, list).Equals("Good"))
                 outputList.Add(IsCityIn(To, list));
 
-
-
+            
+            outputList.Add("Połączenia bezpośrednie");
+            outputList.Add("");
             foreach (TrainData record in list)
             {
                 if(record.TownA1.Equals(From))
@@ -62,12 +69,94 @@ namespace TrainsServ
                 }
             }
 
+            outputList.Add("");
+            outputList.Add("Połączenia pośrednie");
+            outputList.Add("");
+            outputList.AddRange(findIndircetConnections(From, To, list));
             
             return outputList;
         }
 
 
-        
+        private List<string> findIndircetConnections(string start, string end, List<TrainData> trips)
+        {
+            List<TrainData> startTemp = new List<TrainData>();
+            List<TrainData> temp = new List<TrainData>();
+            foreach (TrainData trip in trips)
+            {
+                if (trip.TownB1 == end)
+                {
+                    temp.Add(trip);
+                }
+                else if (trip.TownA1 == start)
+                {
+                    startTemp.Add(trip);
+                }
+            }
+            List<string> indirectRoutes = new List<string>();
+
+
+            foreach (TrainData startT in startTemp)
+            {
+                foreach (TrainData endT in temp)
+                {
+                    if (startT.TownB1 == endT.TownA1)
+                    {
+                        string res = "START:  " + toStringTrainData(startT);
+                        string res2 = "PRZESIADKA: " + toStringTrainData(endT);
+                        indirectRoutes.Add(res);
+                        indirectRoutes.Add(res2);
+                        indirectRoutes.Add("");
+                    }
+
+                }
+            }
+            return indirectRoutes;
+        }
+
+
+        private List<string> findIndircetConnectionsWithTime(string start, string end, DateTime startTime, List<TrainData> trips)
+        {
+            List<TrainData> startTemp = new List<TrainData>();
+            List<TrainData> temp = new List<TrainData>();
+            foreach (TrainData trip in trips)
+            {
+                if (trip.TownB1 == end)
+                {
+                    temp.Add(trip);
+                }
+                else if (trip.TownA1 == start)
+                {
+                    startTemp.Add(trip);
+                }
+            }
+            List<string> indirectRoutes = new List<string>();
+
+
+            foreach (TrainData startT in startTemp)
+            {
+                DateTime startTimestartT = startT.TimeFrom1;
+                
+                foreach (TrainData endT in temp)
+                {
+                    DateTime startTimeendT =  endT.TimeFrom1;
+                    
+                    if (startT.TownB1 == endT.TownA1 && DateTime.Compare(startTimestartT, startTime) >= 0)//startTimestartT >= startTime)
+                    {
+                        string res = "START: " + toStringTrainData(startT);
+                        string res2 = "PRZESIADKA: " + toStringTrainData(endT);
+                       
+                            indirectRoutes.Add(res);
+                            indirectRoutes.Add(res2);
+                            indirectRoutes.Add("");
+                    }
+
+                }
+            }
+          
+            return indirectRoutes;
+        }
+
 
 
         public string IsCityIn(string from, List<TrainData> list)
