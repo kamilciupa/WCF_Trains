@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.IO;
 using System.Globalization;
+using System.Web;
 
 namespace TrainsServ
 {
@@ -19,7 +20,7 @@ namespace TrainsServ
         public List<string> GetTripWithTime(string From, string To, DateTime FromTime)
         {
             List<TrainData> list = ParseCVS();
-            List<string> outputList = new List<string>();
+            List<string> outputList  = new List<string>();
             
             if (!IsCityIn(From, list).Equals("Good"))
                 outputList.Add(IsCityIn(From, list));
@@ -100,7 +101,7 @@ namespace TrainsServ
             {
                 foreach (TrainData endT in temp)
                 {
-                    if (startT.TownB1 == endT.TownA1)
+                    if (startT.TownB1 == endT.TownA1 && DateTime.Compare(startT.TimeTo1, endT.TimeFrom1) <= 0 )
                     {
                         string res = "START:  " + toStringTrainData(startT);
                         string res2 = "PRZESIADKA: " + toStringTrainData(endT);
@@ -141,7 +142,7 @@ namespace TrainsServ
                 {
                     DateTime startTimeendT =  endT.TimeFrom1;
                     
-                    if (startT.TownB1 == endT.TownA1 && DateTime.Compare(startTimestartT, startTime) >= 0)//startTimestartT >= startTime)
+                    if (startT.TownB1 == endT.TownA1 && DateTime.Compare(startT.TimeTo1, endT.TimeFrom1) <= 0 && DateTime.Compare(startTimestartT, startTime) >= 0)//startTimestartT >= startTime)
                     {
                         string res = "START: " + toStringTrainData(startT);
                         string res2 = "PRZESIADKA: " + toStringTrainData(endT);
@@ -168,12 +169,13 @@ namespace TrainsServ
                     return "Good";
                 }
             }
-            return "There is no city like " + from;
+            return "Brak w bazie miasta: " + from;
         }
 
         public List<TrainData> ParseCVS()
         {
-            string[] csvLines = File.ReadAllLines(@"C:\Desktop\WCF\WCF_Trains\TrainsServ\TrainsServ\trains.csv");
+          //path to bin/debug 
+            string[] csvLines = File.ReadAllLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "trains.csv"));
             List<TrainData> list = new List<TrainData>();
 
             foreach (string line in csvLines.Skip(1))

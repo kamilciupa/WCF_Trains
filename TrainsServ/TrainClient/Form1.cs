@@ -26,13 +26,10 @@ namespace TrainClient
 
 
                 listBox1.Items.Clear();
-                string[] outputStrings;
-                //List<string> outputStrings = new List<string>();
+                string[] outputStrings;          
 
                 if (!string.IsNullOrEmpty(boxSkad.Text) && !string.IsNullOrEmpty(boxDokad.Text))
                 {
-
-                    //if (!string.IsNullOrEmpty(maskedTextBox1.Text))
                     if(maskedTextBox1.MaskCompleted)
                     {
                         outputStrings = client.GetTripWithTime(boxSkad.Text, boxDokad.Text, Convert.ToDateTime(maskedTextBox1.Text));
