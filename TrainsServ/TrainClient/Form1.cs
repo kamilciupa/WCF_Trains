@@ -15,6 +15,7 @@ namespace TrainClient
         public Form1()
         {
             InitializeComponent();
+            maskedTextBox1.Mask = "0000-00-00 00:00";
         }
 
         private void buttonZatwierdz_Click(object sender, EventArgs e)
@@ -28,25 +29,35 @@ namespace TrainClient
                 string[] outputStrings;
                 //List<string> outputStrings = new List<string>();
 
-
-                if (!string.IsNullOrEmpty(boxData.Text))
-                    outputStrings = client.GetTripWithTime(boxSkad.Text, boxDokad.Text, Convert.ToDateTime(boxData.Text));
-                else
-                    outputStrings = client.GetTripWithoutTime(boxSkad.Text, boxDokad.Text);
-
-                if (outputStrings.Length != 0)
+                if (!string.IsNullOrEmpty(boxSkad.Text) && !string.IsNullOrEmpty(boxDokad.Text))
                 {
-                    foreach (string row in outputStrings)
-                    {
-                        listBox1.Items.Add(row);
 
+                    //if (!string.IsNullOrEmpty(maskedTextBox1.Text))
+                    if(maskedTextBox1.MaskCompleted)
+                    {
+                        outputStrings = client.GetTripWithTime(boxSkad.Text, boxDokad.Text, Convert.ToDateTime(maskedTextBox1.Text));
                     }
+                    else
+                        outputStrings = client.GetTripWithoutTime(boxSkad.Text, boxDokad.Text);
+
+
+                    if (outputStrings.Length != 0)
+                    {
+                        foreach (string row in outputStrings)
+                        {
+                            listBox1.Items.Add(row);
+
+                        }
+                    }
+                    else { listBox1.Items.Add("Brak polaczen"); }
+                } else
+                {
+                    listBox1.Items.Add("Podaj dane");
                 }
-                else { listBox1.Items.Add("Brak polaczen"); }
             }
             catch (Exception ex)
             {
-                
+
             }
 
 

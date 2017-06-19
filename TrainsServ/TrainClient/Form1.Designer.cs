@@ -33,10 +33,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.boxSkad = new System.Windows.Forms.TextBox();
             this.boxDokad = new System.Windows.Forms.TextBox();
-            this.boxData = new System.Windows.Forms.TextBox();
             this.buttonZatwierdz = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,13 +81,6 @@
             this.boxDokad.Size = new System.Drawing.Size(252, 20);
             this.boxDokad.TabIndex = 4;
             // 
-            // boxData
-            // 
-            this.boxData.Location = new System.Drawing.Point(100, 76);
-            this.boxData.Name = "boxData";
-            this.boxData.Size = new System.Drawing.Size(252, 20);
-            this.boxData.TabIndex = 5;
-            // 
             // buttonZatwierdz
             // 
             this.buttonZatwierdz.Location = new System.Drawing.Point(100, 117);
@@ -108,11 +101,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.boxDokad);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.buttonZatwierdz);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.boxData);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.boxSkad);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -121,6 +114,13 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wprowadź Dane";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(100, 80);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(252, 20);
+            this.maskedTextBox1.TabIndex = 8;
             // 
             // Form1
             // 
@@ -144,10 +144,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox boxSkad;
         private System.Windows.Forms.TextBox boxDokad;
-        private System.Windows.Forms.TextBox boxData;
         private System.Windows.Forms.Button buttonZatwierdz;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
 
