@@ -19,29 +19,42 @@ namespace TrainsServ
 
         public List<string> GetTripWithTime(string From, string To, DateTime FromTime)
         {
+            bool flag = false;
+
             List<TrainData> list = ParseCVS();
             List<string> outputList  = new List<string>();
-            
+
             if (!IsCityIn(From, list).Equals("Good"))
-                outputList.Add(IsCityIn(From, list));
-            if (!IsCityIn(To, list).Equals("Good"))
-                outputList.Add(IsCityIn(To, list));
-
-            outputList.Add("Połączenia bezpośrednie");
-            outputList.Add("");
-            foreach (TrainData record in list)
             {
-                if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && DateTime.Compare(record.TimeFrom1, FromTime) >=0)
-                {
-                    outputList.Add(toStringTrainData(record));
-                }
-                
+                outputList.Add(IsCityIn(From, list));
+                flag = true;
             }
-            outputList.Add("");
-            outputList.Add("Połączenia pośrednie");
-            outputList.Add("");
-            outputList.AddRange(findIndircetConnectionsWithTime(From, To, FromTime, list));
+            if (!IsCityIn(To, list).Equals("Good"))
+            {
+                outputList.Add(IsCityIn(To, list));
+                flag = true;
+            }
 
+            if (!flag)
+            {
+                outputList.Add("Połączenia bezpośrednie");
+                outputList.Add("");
+                foreach (TrainData record in list)
+                {
+                    if (record.TownA1.Equals(From) && record.TownB1.Equals(To) && DateTime.Compare(record.TimeFrom1, FromTime) >= 0)
+                    {
+                        outputList.Add(toStringTrainData(record));
+                    }
+
+                }
+                outputList.Add("");
+                outputList.Add("Połączenia pośrednie");
+                outputList.Add("");
+                outputList.AddRange(findIndircetConnectionsWithTime(From, To, FromTime, list));
+
+                if (outputList.Count == 5)
+                    outputList.Clear();
+            }
             return outputList;
         }
 
@@ -49,32 +62,44 @@ namespace TrainsServ
         {
             List<TrainData> list = ParseCVS();
             List<string> outputList = new List<string>();
-            
-            if (!IsCityIn(From, list).Equals("Good"))
-                outputList.Add(IsCityIn(From, list));
-            if (!IsCityIn(To, list).Equals("Good"))
-                outputList.Add(IsCityIn(To, list));
+            bool flag = false;
 
-            
-            outputList.Add("Połączenia bezpośrednie");
-            outputList.Add("");
-            foreach (TrainData record in list)
+            if (!IsCityIn(From, list).Equals("Good"))
             {
-                if(record.TownA1.Equals(From))
-                {
-                    if (record.TownB1.Equals(To))
-                    {
-                        outputList.Add(toStringTrainData(record));
-                    }
-                   
-                }
+                outputList.Add(IsCityIn(From, list));
+                flag = true;
+            }
+            if (!IsCityIn(To, list).Equals("Good"))
+            {
+                outputList.Add(IsCityIn(To, list));
+                flag = true;
             }
 
-            outputList.Add("");
-            outputList.Add("Połączenia pośrednie");
-            outputList.Add("");
-            outputList.AddRange(findIndircetConnections(From, To, list));
-            
+            if (!flag)
+            {
+                outputList.Add("Połączenia bezpośrednie");
+                outputList.Add("");
+                foreach (TrainData record in list)
+                {
+                    if (record.TownA1.Equals(From))
+                    {
+                        if (record.TownB1.Equals(To))
+                        {
+                            outputList.Add(toStringTrainData(record));
+                        }
+
+                    }
+                }
+
+                outputList.Add("");
+                outputList.Add("Połączenia pośrednie");
+                outputList.Add("");
+                outputList.AddRange(findIndircetConnections(From, To, list));
+
+
+                if (outputList.Count == 5)
+                    outputList.Clear();
+            }
             return outputList;
         }
 
